@@ -68,11 +68,16 @@ function clearDoneList() {
 }
 
 function resetWeek() {
-  clearDoneList();
+  const url = window.location.hostname;
+  if (url === 'trello.com') {
+    clearDoneList();
 
-  setTimeout(function() {
-      resetRecurrentList();
-  }, 2000);
+    setTimeout(function() {
+        resetRecurrentList();
+    }, 2000);
+  } else {
+    alert('You are not on trello');
+  }
 }
 
 resetWeek();
